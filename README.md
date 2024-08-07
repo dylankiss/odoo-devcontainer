@@ -2,6 +2,8 @@
 
 This repository contains all files necessary to build a Docker image for Odoo development.
 
+The image is available at [Docker Hub](https://hub.docker.com/r/dylankiss/odoo-devcontainer).
+
 It is based on the [Ubuntu 24.04 (Noble Numbat)](https://hub.docker.com/_/ubuntu) Docker image and the configuration is based on Odoo's Runbot Docker image and part of the [`common-utils` feature](https://github.com/devcontainers/features/tree/main/src/common-utils).
 
 In short it does the following:

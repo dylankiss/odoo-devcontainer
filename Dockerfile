@@ -18,7 +18,7 @@ ADD "https://raw.githubusercontent.com/odoo/documentation/${ODOO_VERSION}/requir
 ADD "https://raw.githubusercontent.com/odoo/odoo/${ODOO_VERSION}/requirements.txt" /tmp/requirements.txt
 
 # Add flamegraph
-ADD https://raw.githubusercontent.com/brendangregg/FlameGraph/master/flamegraph.pl /usr/local/bin/flamegraph.pl
+ADD --chmod=555 https://raw.githubusercontent.com/brendangregg/FlameGraph/master/flamegraph.pl /usr/local/bin/flamegraph.pl
 
 # Add GeoIP databases
 ADD https://github.com/maxmind/MaxMind-DB/raw/main/test-data/GeoIP2-City-Test.mmdb /usr/share/GeoIP/GeoLite2-City.mmdb
@@ -26,11 +26,3 @@ ADD https://github.com/maxmind/MaxMind-DB/raw/main/test-data/GeoIP2-Country-Test
 
 # Setup the container with all dependencies
 RUN ./tmp/scripts/odoo-dev-container-setup.sh
-
-# Extra setup when running the container standalone
-
-EXPOSE 8069
-
-USER odoo
-
-ENTRYPOINT [ "/bin/zsh" ]

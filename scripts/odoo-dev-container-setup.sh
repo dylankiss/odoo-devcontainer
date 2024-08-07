@@ -209,10 +209,7 @@ npm install --force -g \
 
 
 # *****************************************************************************
-# ** Final configuration                                                     **
+# ** Cleanup                                                                 **
 # *****************************************************************************
-
-# Make flamegraph executable
-chmod +rx /usr/local/bin/flamegraph.pl
 
 rm -rf /tmp/scripts
