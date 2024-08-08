@@ -1,0 +1,38 @@
+{
+  "name": "Odoo Dev",
+
+  // Uncomment this section if you want to build the Docker image from source.
+  // "build": {
+  //   "dockerfile": "Dockerfile"
+  // },
+
+  // Use the prebuilt Docker image.
+  "image": "dylankiss/odoo-devcontainer",
+
+  // Mount the 'internal', 'upgrade' and 'upgrade-util' repo's located outside of this workspace.
+  // That way, the symlinks created to them in the workspace will also work in the container.
+  // You can remove any of these if you don't have a symlink to them.
+  "mounts": [
+    {
+      "source": "${localWorkspaceFolder}/../internal",
+      "target": "${containerWorkspaceFolder}/../internal",
+      "type": "bind"
+    },
+    {
+      "source": "${localWorkspaceFolder}/../upgrade",
+      "target": "${containerWorkspaceFolder}/../upgrade",
+      "type": "bind"
+    },
+    {
+      "source": "${localWorkspaceFolder}/../upgrade-util",
+      "target": "${containerWorkspaceFolder}/../upgrade-util",
+      "type": "bind"
+    }
+  ],
+
+  // Run the PostgreSQL server after starting the container.
+  "postCreateCommand": "sudo service postgresql start",
+
+  // Connect as the Odoo user.
+  "remoteUser": "odoo"
+}
